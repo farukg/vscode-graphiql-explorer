@@ -1,3 +1,9 @@
+# About this fork
+ - fixes exploring graphql queries in ReasonML files when used with rescript-relay and adds same functionality for rescript for people who not yet fully switched to rescript
+ - removed graphql language config in package.json because graphql.configuration.json was not present
+ - it works on my machine, but i may have broke things :P 
+ - i of course won't publish since i don't really know if i did everthing correctly, but vsix is checked in , you can use at your own risk
+ - https://github.com/farukg/vscode-graphiql-explorer/blob/master/vscode-graphiql-explorer-1.3.1.vsix?raw=true
 # vscode-graphiql-explorer
 
 Use [GraphiQL](https://github.com/graphql/graphiql) + [OneGraph's](https://www.onegraph.com/) [GraphiQL Explorer](https://github.com/OneGraph/graphiql-explorer) to build your GraphQL operations, right from inside of VSCode.

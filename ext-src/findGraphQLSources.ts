@@ -25,12 +25,12 @@ export let makeExtractTagsFromSource = (
       content: result[0],
       start: {
         line: start.line,
-        character: start.column
+        character: start.column,
       },
       end: {
         line: end.line,
-        character: end.column
-      }
+        character: end.column,
+      },
     });
   }
 
@@ -42,15 +42,20 @@ export const jsGraphQLTagsRegexp = new RegExp(
 );
 export const reasonFileFilterRegexp = new RegExp(/(\[%(graphql|relay\.))/g);
 export const reasonGraphQLTagsRegexp = new RegExp(
-  /(?<=\[%(graphql|relay\.\w*)[\s\S]*{\|)[.\s\S]+?(?=\|})/gm
+  /(?<=\[%(graphql|relay)[\s\S]*{\|)[.\s\S]+?(?=\|})/gm
 );
-
+export const rescriptGraphQLTagsRegexp = new RegExp(
+  /(?<=%relay\(\`)[.\s]+?(?!\/\/)[.\s\S]+?(?=\`\))/g
+);
 const extractGraphQLSourceFromJs = makeExtractTagsFromSource(
   jsGraphQLTagsRegexp
 );
 
 const extractGraphQLSourceFromReason = makeExtractTagsFromSource(
   reasonGraphQLTagsRegexp
+);
+const extractGraphQLSourceFromRescript = makeExtractTagsFromSource(
+  rescriptGraphQLTagsRegexp
 );
 
 export function extractGraphQLSources(
@@ -62,8 +67,8 @@ export function extractGraphQLSources(
       return [
         {
           type: "FULL_DOCUMENT",
-          content: document
-        }
+          content: document,
+        },
       ];
     case "javascript":
     case "javascriptreact":
@@ -73,6 +78,8 @@ export function extractGraphQLSources(
       return extractGraphQLSourceFromJs(document);
     case "reason":
       return extractGraphQLSourceFromReason(document);
+    case "rescript":
+      return extractGraphQLSourceFromRescript(document);
     default:
       return null;
   }

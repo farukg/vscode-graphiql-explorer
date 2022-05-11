@@ -1,6 +1,6 @@
 {
   "name": "vscode-graphiql-explorer",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "engines": {
     "vscode": "^1.30.0"
   },
@@ -8,9 +8,9 @@
   "author": "Gabriel Nordeborn <gabbe.nord@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zth/vscode-graphiql-explorer"
+    "url": "https://github.com/farukg/vscode-graphiql-explorer"
   },
-  "publisher": "GabrielNordeborn",
+  "publisher": "farukg",
   "activationEvents": [
     "workspaceContains:/schema.graphql",
     "workspaceContains:/schema.json",
@@ -48,20 +48,7 @@
         "category": "GraphQL"
       }
     ],
-    "languages": [
-      {
-        "id": "graphql",
-        "extensions": [
-          ".gql",
-          ".graphql",
-          ".graphqls"
-        ],
-        "aliases": [
-          "GraphQL"
-        ],
-        "configuration": "./graphql.configuration.json"
-      }
-    ],
+
     "grammars": [
       {
         "language": "graphql",

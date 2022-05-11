@@ -25,3 +25,6 @@ yarn-error.log*
 .merlin
 lib
 .bsb.lock
+.history
+.vscode
+*.old
